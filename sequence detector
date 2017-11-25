@@ -1,0 +1,52 @@
+seq = input("Enter a sequence: ")
+vec = '1011'
+#1101110101
+count = 0
+num_det = 0
+stop = len(seq)-3
+j = 0
+token = 1
+
+for i in range(0,stop):
+    print("i is "+str(i)+" NEW character is "+seq[i])
+    for j in range(0,len(vec)):
+        print("j is :",j)
+        if (vec[j] == seq[i+j]):
+            print("j is "+str(j)+" and vec["+str(j)+"] is: "+vec[j])
+            print("i is "+str(i)+" and seq["+str(i+j)+"] is: "+seq[i+j])
+            count += 1
+            print(str(count)+"th stage passed!")
+        else:
+            print("move on to next character")
+            count = 0
+        if count == 4:
+            num_det += 1
+            print("Detected vector!")
+        j += 1
+    count = 0    
+    j = 0
+print("Number of detectd vectors",num_det)
+
+'''
+for i in range(0,stop):
+    print("i is "+str(i)+" character "+seq[i])
+    while (j<4)and token:
+        print("j is :",j)
+        
+        if (vec[j] == seq[i+j]):
+            print("j is "+str(j)+" and vec["+str(j)+"] is: "+vec[j])
+            print("i is "+str(i)+" and seq["+str(i+j)+"] is: "+seq[i+j])
+            count += 1
+            print(str(count)+"th stage passed!")
+        else:
+            token = 0
+            print("move on to next character")
+        if count == 4:
+            num_det += 1
+            print("Detected vector!")
+        j += 1
+    count = 0    
+    j = 0
+    token = 1
+print("Number of detectd vectors",num_det)
+'''
