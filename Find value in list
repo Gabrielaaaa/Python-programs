@@ -1,0 +1,10 @@
+def find_all(lst,val):
+    newlst = []
+    for i in range(len(lst)):
+        if lst[i] == val:
+            newlst.append(i)
+    return(newlst)
+lst = ['a','b','10','bab','a']
+val = 'a'
+newlist = find_all(lst,val)
+print(newlist)
