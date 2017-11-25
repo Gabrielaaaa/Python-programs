@@ -1,0 +1,28 @@
+
+
+import random
+#this function is inclusive
+n = random.randint(1,10)
+
+print("I thought of a number between 1 and 100! Try to guess it.")
+print()
+guess = 0
+count = 0
+top = 1
+bot = 100
+while (count < 5)and(guess!=n):
+    print("Range: ["+str(top)+","+str(bot)+"], Number of guesses left: "+str(5-count))
+    guess = int(input("Your guess: "))
+    if guess == n:
+        print("Congrats! You guessed my number in "+str(count+1)+" guesses.")
+    elif count !=4:
+        if n>guess:
+            print("Wrong!My number is bigger.")
+            top = guess+1
+        elif n<guess:
+            print("Wrong!My number is smaller.")
+            bot = guess-1
+    count += 1
+    print()
+if (count == 5)and(guess !=n):
+    print("Out of guesses! My number is",n)
