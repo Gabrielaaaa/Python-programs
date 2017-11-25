@@ -1,0 +1,34 @@
+def length_string_encoder(string):
+    count = 0
+    i_cnt = 0
+    char = string[0]
+    lst1 = []
+    for i in string:
+        i_cnt +=1
+        if i_cnt == len(string):
+            if i ==char:
+                count+=1
+                lst1.append([char,count])
+            else:
+                lst1.append([char,count])
+                count=1
+                char=i
+                lst1.append([char,count])       
+        if i ==char:
+            count+=1
+        else:
+            lst1.append([char,count])
+            count=1
+            char=i
+    return lst1
+
+print(length_string_encoder('aadccccaa'))
+
+
+def length_string_decoder(lst):
+    string=''
+    for i in lst:
+        string = string + (i[0] *i[1])
+    return string
+
+print(length_string_decoder(length_string_encoder('aadccccaa')))
