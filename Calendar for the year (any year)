@@ -1,0 +1,40 @@
+def print_month_calendar(num_of_days, starting_day):
+    print("Mon","Tue","Wed","Thr","Fri","Sat","Sun",sep="\t")
+    # add numbers to first row
+    vec_new = ""
+    a1_cnt = 0
+    a2_cnt = 0
+    for a in range(1,8):
+        if a <= starting_day-1:
+            vec_new = vec_new +" "+"    "+" "*3
+            a1_cnt += 1
+        else:
+            vec_new = vec_new + str(a-a1_cnt)+"    "+" "*3
+            a2_cnt = a2_cnt+1
+    print(vec_new) #firstrow
+    # finding number of rows to print after 1st row
+    if starting_day == 7 and num_of_days == 30:
+        rows = 5
+    elif starting_day >= 6 and num_of_days == 31:
+        rows = 5
+    else:
+        rows = 4
+    # printing out the rest of the rows
+    vec_new = "" #reset row
+    day = a2_cnt
+    for k in range(1,rows+1):
+            for j in range(1,7+1):
+                if day != num_of_days:
+                    day += 1
+                    if day >= 10:
+                        vec_new = vec_new + str(day)+"    "+" "*2 #double digit days
+                    else:
+                        vec_new = vec_new + str(day)+"    "+" "*3 #single digit days
+            print(vec_new)
+            vec_new = "" #reset each row once your done
+    return()
+#num_of_days = int(input("Enter number of days in month: "))
+#starting_day = int(input("enter starting day: "))
+#print_month_calendar(num_of_days,starting_day)
+
+def check_leap_year(year):
