@@ -1,0 +1,23 @@
+
+def print_shifted_triangle(n, m, symbol):
+    bot = n-(n-1)
+    for i in range(n):
+        print((" "*((n-1)-i+m))+symbol*(bot+(2*i))+(" "*((n-1)-i)))
+    return()
+
+def print_pine_tree(n, symbol):
+    for i in range(n):
+        m = n-1-i
+        nn = 2+i
+        print_shifted_triangle(nn, m, symbol)
+    return()
+
+
+#print_pine_tree(3,'#')
+def main():
+    num_of_trees = int(input("Enter number of traingles in tree: "))
+    symbol = input("Enter symbol for tree fillings: ")
+    print_pine_tree(num_of_trees,symbol)
+
+main()
+ 
